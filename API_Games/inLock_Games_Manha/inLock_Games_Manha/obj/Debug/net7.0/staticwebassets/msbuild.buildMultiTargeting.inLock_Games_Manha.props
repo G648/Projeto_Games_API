@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\inLock_Games_Manha.props" />
+</Project>
