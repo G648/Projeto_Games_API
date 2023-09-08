@@ -1640,19 +1640,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\45845444845\\.nuget\\packages\\": {}
+    "C:\\Users\\cezar\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\45845444845\\Desktop\\ProjetoGames\\API_Games\\inLock_Games_Manha\\inLock_Games_Manha\\inLock_Games_Manha.csproj",
+      "projectUniqueName": "C:\\Users\\cezar\\OneDrive\\Área de Trabalho\\Projeto_Games_API\\API_Games\\inLock_Games_Manha\\inLock_Games_Manha\\inLock_Games_Manha.csproj",
       "projectName": "inLock_Games_Manha",
-      "projectPath": "C:\\Users\\45845444845\\Desktop\\ProjetoGames\\API_Games\\inLock_Games_Manha\\inLock_Games_Manha\\inLock_Games_Manha.csproj",
-      "packagesPath": "C:\\Users\\45845444845\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\45845444845\\Desktop\\ProjetoGames\\API_Games\\inLock_Games_Manha\\inLock_Games_Manha\\obj\\",
+      "projectPath": "C:\\Users\\cezar\\OneDrive\\Área de Trabalho\\Projeto_Games_API\\API_Games\\inLock_Games_Manha\\inLock_Games_Manha\\inLock_Games_Manha.csproj",
+      "packagesPath": "C:\\Users\\cezar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cezar\\OneDrive\\Área de Trabalho\\Projeto_Games_API\\API_Games\\inLock_Games_Manha\\inLock_Games_Manha\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\45845444845\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cezar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1714,7 +1714,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

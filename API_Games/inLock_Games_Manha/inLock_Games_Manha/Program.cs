@@ -8,38 +8,38 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 //Adiciona serviço de Jwt Bearer (forma de autenticação)
-//builder.Services.AddAuthentication(options =>
-//{
-//    options.DefaultChallengeScheme = "JwtBearer";
-//    options.DefaultAuthenticateScheme = "JwtBearer";
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultChallengeScheme = "JwtBearer";
+    options.DefaultAuthenticateScheme = "JwtBearer";
 
-//})
+})
 
-//.AddJwtBearer("JwtBearer", options =>
-//{
-//    options.TokenValidationParameters = new TokenValidationParameters
-//    {
-//        //Valida quem esta solicitando
-//        ValidateIssuer = true,
+.AddJwtBearer("JwtBearer", options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        //Valida quem esta solicitando
+        ValidateIssuer = true,
 
-//        //Valida quem esta recebendo
-//        ValidateAudience = true,
+        //Valida quem esta recebendo
+        ValidateAudience = true,
 
-//        //define se o tempo de expiração sera validado
-//        ValidateLifetime = true,
+        //define se o tempo de expiração sera validado
+        ValidateLifetime = true,
 
-//        //forma de criptografia e valida a chave de autenticação
-//        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("filmes-chave-autenticacao-webapi-dev")),
+        //forma de criptografia e valida a chave de autenticação
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("chave-autenticacao-inLock-Games")),
 
-//        //Valida o tempo de expiração do token
-//        ClockSkew = TimeSpan.FromMinutes(5),
+        //Valida o tempo de expiração do token
+        ClockSkew = TimeSpan.FromMinutes(5),
 
-//        //nome do audience (para onde está indo)
-//        ValidIssuer = "webapi.filmes",
+        //nome do audience (para onde está indo)
+        ValidIssuer = "inLock_Games_Manha",
 
-//        ValidAudience = "webapi.filmes"
-//    };
-//});
+        ValidAudience = "inLock_Games_Manha"
+    };
+});
 
 //adiciona o gerador do swagger á coleção de serviços
 builder.Services.AddSwaggerGen(options =>
@@ -51,8 +51,8 @@ builder.Services.AddSwaggerGen(options =>
         Description = "Uma ASP.NET Core WEB API para gerenciamento de filmes",
         Contact = new OpenApiContact
         {
-            Name = "Guilherme Sousa Oliveira",
-            Url = new Uri("https://github.com/GSolivier")
+            Name = "Guilherme Amorim",
+            Url = new Uri("https://github.com/")
         }
     });
 
@@ -61,29 +61,29 @@ builder.Services.AddSwaggerGen(options =>
     //options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 
     //Usando a autenticaçao no Swagger
-    //options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
-    //{
-    //    Name = "Authorization",
-    //    Type = SecuritySchemeType.ApiKey,
-    //    Scheme = "Bearer",
-    //    BearerFormat = "JWT",
-    //    In = ParameterLocation.Header,
-    //    Description = "Value: Bearer TokenJWT ",
-    //});
-    //options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    //{
-    //    {
-    //        new OpenApiSecurityScheme
-    //        {
-    //            Reference = new OpenApiReference
-    //            {
-    //                Type = ReferenceType.SecurityScheme,
-    //                Id = "Bearer"
-    //            }
-    //        },
-    //        new string[] {}
-    //    }
-    //});
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Value: Bearer TokenJWT ",
+    });
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
 });
 
 var app = builder.Build();
@@ -108,10 +108,10 @@ app.UseSwaggerUI(options =>
 app.MapControllers();
 
 //Adiciona autenticação
-//app.UseAuthentication();
+app.UseAuthentication();
 
 //Adiciona autorização
-//app.UseAuthorization();
+app.UseAuthorization();
 
 app.UseHttpsRedirection();
 
