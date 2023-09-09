@@ -1,6 +1,7 @@
 ﻿using inLock_Games_Manha.Domains;
 using inLock_Games_Manha.Interfaces;
 using inLock_Games_Manha.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +24,13 @@ namespace inLock_Games_Manha.Controllers
             _jogosRepository = new JogosRepository();
         }
 
+        /// <summary>
+        /// Método para realizar o cadastro de um novo Jogo
+        /// </summary>
+        /// <param name="novoJogo"></param>
+        /// <returns>Jogo Cadastrado</returns>
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Post(JogosDomain novoJogo)
         {
             try
@@ -38,7 +45,12 @@ namespace inLock_Games_Manha.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para realizar a listagem de um determinado jogo
+        /// </summary>
+        /// <returns>jogo listado</returns>
         [HttpGet]
+        [Authorize(Roles ="Administrador, Comunm")]
         public IActionResult Get()
         {
             try

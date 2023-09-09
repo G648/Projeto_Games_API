@@ -27,3 +27,5 @@ LEFT JOIN Jogo
 ON Estudio.IdEstudio = Jogo.IdEstudio;
 
 SELECT IdJogo, Jogo.IdEstudio, Jogo.Nome, Descricao, DataLancamento, Valor, Estudio.Nome AS Estudio FROM Jogo INNER JOIN Estudio ON Jogo.IdEstudio = Estudio.IdEstudio
+
+SELECT IdUsuario, Usuario.IdTipoUsuario, Email, Senha, CASE WHEN Usuario.IdTipoUsuario = 1 THEN 'Comum' ELSE 'Admin' END AS TipoUsuario FROM Usuario;

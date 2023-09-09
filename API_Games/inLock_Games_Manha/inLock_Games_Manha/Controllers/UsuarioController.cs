@@ -48,7 +48,7 @@ namespace inLock_Games_Manha.Controllers
                     //jti realiza a validação do ID que estamos procurando
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
-                    new Claim(ClaimTypes.Role, usuarioBuscado.IdTipoUsuario.ToString()),
+                    new Claim(ClaimTypes.Role, usuarioBuscado.IdTipoUsuario.ToString())
                 };
 
                 //2º -> difinir a chave de acesso ao token

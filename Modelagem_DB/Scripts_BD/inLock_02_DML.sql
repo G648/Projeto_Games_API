@@ -18,4 +18,3 @@ INSERT INTO Usuario(IdTipoUsuario,Email,Senha)
 VALUES (1,'cliente@cliente.com','cliente')
       ,(2,'admin@admin.com','admin');
 GO
-
