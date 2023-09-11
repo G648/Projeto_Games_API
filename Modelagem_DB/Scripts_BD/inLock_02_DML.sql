@@ -10,6 +10,9 @@ VALUES (1,'Diablo 3','É um jogo que contém bastante ação e é viciante, seja você
 	  ,(2,'Red Dead Redemption II','Jogo eletrônico de ação-aventura western.','2012-09-27','120');
 GO
 
+INSERT INTO Jogo (IdEstudio, Nome,Descricao,DataLancamento,Valor)
+VALUES (3, 'Testeee', 'jogao', '2012-09-10', '100');
+
 INSERT INTO TiposUsuario(Titulo)
 VALUES ('Comum'),('Administrador');
 GO

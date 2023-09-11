@@ -22,6 +22,11 @@ namespace inLock_Games_Manha.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// Método para realizar o login do usuario dentro do sistema
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns>token do usuario</returns>
         [HttpPost]
         public IActionResult Post (UsuarioDomain usuario)
         {

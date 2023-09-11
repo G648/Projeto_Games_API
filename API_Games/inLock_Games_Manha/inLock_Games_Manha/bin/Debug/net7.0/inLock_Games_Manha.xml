@@ -42,6 +42,13 @@
             <param name="novoStudio"></param>
             <returns>Objeto Criado</returns>
         </member>
+        <member name="M:inLock_Games_Manha.Controllers.UsuarioController.Post(inLock_Games_Manha.Domains.UsuarioDomain)">
+            <summary>
+            Método para realizar o login do usuario dentro do sistema
+            </summary>
+            <param name="usuario"></param>
+            <returns>token do usuario</returns>
+        </member>
         <member name="T:inLock_Games_Manha.Domains.JogosDomain">
             <summary>
              Classe que representa nossa tabela jogos no banco de dados
@@ -128,7 +135,7 @@
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="F:inLock_Games_Manha.Repositories.StudioRepository.stringConexao">
+        <member name="F:inLock_Games_Manha.Repositories.StudioRepository.stringconexao">
             <summary>
             String de conexão com o banco de dados que recebe os seguintes parâmetros:
             Data Source: Nome do Servidor

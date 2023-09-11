@@ -16,8 +16,8 @@ namespace inLock_Games_Manha.Repositories
         /// 
         //Autenticação com o SQL Server
 
-        //private string stringConexao = "Data Source = NOTE16-S15; Initial Catalog = inlock_games_manha; User id = sa; pwd = Senai@134; TrustServerCertificate = true";
-        private string stringConexao = "Data Source = AMORIM\\SQLEXPRESS; Initial Catalog = inlock_games_manha; User id = sa; pwd = Senai@134; TrustServerCertificate = true";
+        private string stringConexao = "Data Source = NOTE16-S15; Initial Catalog = inlock_games_manha; User id = sa; pwd = Senai@134; TrustServerCertificate = true";
+        //private string stringConexao = "Data Source = AMORIM\\SQLEXPRESS; Initial Catalog = inlock_games_manha; User id = sa; pwd = Senai@134; TrustServerCertificate = true";
 
         /// <summary>
         /// Método para realizar a criação de um cadastro de um novo jogo

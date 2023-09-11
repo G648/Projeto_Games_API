@@ -17,8 +17,8 @@ namespace inLock_Games_Manha.Repositories
         /// 
         //Autenticação com o SQL Server
 
-        //private string stringConexao = "Data Source = NOTE16-S15; Initial Catalog = inlock_games_manha; User id = sa; pwd = Senai@134; TrustServerCertificate = true";
-        private string stringConexao = "Data Source = AMORIM\\SQLEXPRESS; Initial Catalog = inlock_games_manha; User id = sa; pwd = Senai@134; TrustServerCertificate = true";
+        private string stringconexao = "data source = NOTE16-S15; initial catalog = inlock_games_manha; user id = sa; pwd = Senai@134; trustservercertificate = true";
+        //private string stringConexao = "Data Source = AMORIM\\SQLEXPRESS; Initial Catalog = inlock_games_manha; User id = sa; pwd = Senai@134; TrustServerCertificate = true";
 
         /// <summary>
         /// Método para realizar o cadastro de novos studios
@@ -27,7 +27,7 @@ namespace inLock_Games_Manha.Repositories
         /// <exception cref="NotImplementedException"></exception>
         public void cadastrar(StudioDomain novoStudio)
         {
-            using (SqlConnection conn = new SqlConnection(stringConexao))
+            using (SqlConnection conn = new SqlConnection(stringconexao))
             {
                 string queryInsert = "INSERT INTO Estudio(Nome) VALUES (@Nome)";
 
@@ -48,11 +48,12 @@ namespace inLock_Games_Manha.Repositories
         /// <returns>lista de studios</returns>
         public List<StudioDomain> ListarTodos()
         {
-            List<StudioDomain> listarTodos = new List<StudioDomain>();
+            List<StudioDomain> listaEstudios = new List<StudioDomain>();
 
-            using (SqlConnection conn = new SqlConnection(stringConexao))
+            using (SqlConnection conn = new SqlConnection(stringconexao))
             {
-                string querySelectAll = "SELECT IdEstudio, Nome FROM Estudio ";
+                string querySelectAll = "SELECT Estudio.IdEstudio, Estudio.Nome AS Estudio, IdJogo, Jogo.Nome AS Jogo, Descricao, DataLancamento, Valor FROM Estudio LEFT JOIN Jogo ON Jogo.IdEstudio = Estudio.IdEstudio ORDER BY Estudio.IdEstudio";
+
 
                 conn.Open();
 
@@ -62,20 +63,44 @@ namespace inLock_Games_Manha.Repositories
                 {
                     rdr = cmd.ExecuteReader();
 
+                    Dictionary<int, StudioDomain> estudiosDict = new Dictionary<int, StudioDomain>();
+
                     while (rdr.Read())
                     {
-                        StudioDomain listarStudio = new StudioDomain()
+                        int idEstudio = Convert.ToInt32(rdr["IdEstudio"]);
+
+                        if (!estudiosDict.ContainsKey(idEstudio))
                         {
+                            StudioDomain estudio = new StudioDomain()
+                            {
+                                IdEstudio = Convert.ToInt32(rdr["IdEstudio"]),
+                                Nome = Convert.ToString(rdr["Estudio"]),
+
+                                Jogos = new List<JogosDomain>()
+                            };
+                            estudiosDict.Add(idEstudio, estudio);
+                        }
+
+                        JogosDomain jogos = new JogosDomain()
+                        {
+                            IdJogo = Convert.ToInt32(rdr["IdJogo"]),
                             IdEstudio = Convert.ToInt32(rdr["IdEstudio"]),
 
-                            Nome = rdr["Nome"].ToString()
+                            Nome = Convert.ToString(rdr["Jogo"]),
+
+                            Descricao = Convert.ToString(rdr["Descricao"]),
+                            DataLancamento = Convert.ToDateTime(rdr["DataLancamento"]),
+                            Valor = Convert.ToDouble(rdr["Valor"])
                         };
 
-                        listarTodos.Add(listarStudio);
+                        estudiosDict[idEstudio].Jogos.Add(jogos);
+
+                        listaEstudios = estudiosDict.Values.ToList();
                     }
                 }
-                return listarTodos;
             }
+            return listaEstudios;
         }
     }
 }
+

@@ -37,3 +37,5 @@ SELECT IdUsuario, Usuario.IdTipoUsuario, Email, Titulo FROM Usuario LEFT JOIN Ti
 SELECT IdEstudio, Nome FROM Estudio 
 
 DELETE FROM Jogo WHERE IdJogo = 4
+
+SELECT Estudio.IdEstudio, Estudio.Nome AS Estudio, IdJogo, Jogo.Nome AS Jogo, Descricao, DataLancamento, Valor FROM Estudio LEFT JOIN Jogo ON Jogo.IdEstudio = Estudio.IdEstudio

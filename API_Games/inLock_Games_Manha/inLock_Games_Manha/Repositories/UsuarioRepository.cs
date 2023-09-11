@@ -9,7 +9,8 @@ namespace inLock_Games_Manha.Repositories
     public class UsuarioRepository : IUsuarioRepository
     {
         //antes de tudo, vamos chamar nossa string de conexão para conseguirmos executar os comandos de banco de dados
-        private string stringConexao = "Data Source = AMORIM\\SQLEXPRESS; Initial Catalog = inlock_games_manha; User id = sa; pwd = Senai@134; TrustServerCertificate = true";
+        private string stringconexao = "data source = NOTE16-S15; initial catalog = inlock_games_manha; user id = sa; pwd = Senai@134; trustservercertificate = true";
+        //private string stringConexao = "Data Source = AMORIM\\SQLEXPRESS; Initial Catalog = inlock_games_manha; User id = sa; pwd = Senai@134; TrustServerCertificate = true";
 
         /// <summary>
         /// Método para retornar o usuario buscado com um método de login passando como parâmetro o email e a senha do usuario
@@ -20,7 +21,7 @@ namespace inLock_Games_Manha.Repositories
         public UsuarioDomain Login(string Email, string Senha)
         {
             //realizando a criação da string de conexão:
-            using (SqlConnection conn = new SqlConnection(stringConexao))
+            using (SqlConnection conn = new SqlConnection(stringconexao))
             {
                 //criando nossa string de banco de dados
                 string querySelect = "SELECT IdUsuario, Usuario.IdTipoUsuario, Email, Senha, TiposUsuario.Titulo FROM Usuario INNER JOIN TiposUsuario ON Usuario.IdTipoUsuario = TiposUsuario.IdTipoUsuario WHERE Email = @Email AND Senha = @Senha";

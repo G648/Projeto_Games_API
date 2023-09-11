@@ -92,3 +92,5 @@ C:\Users\cezar\OneDrive\Área de Trabalho\Projeto_Games_API\API_Games\inLock_Gam
 C:\Users\cezar\OneDrive\Área de Trabalho\Projeto_Games_API\API_Games\inLock_Games_Manha\inLock_Games_Manha\obj\Debug\net7.0\ref\inLock_Games_Manha.dll
 C:\Users\cezar\OneDrive\Área de Trabalho\Projeto_Games_API\API_Games\inLock_Games_Manha\inLock_Games_Manha\bin\Debug\net7.0\inLock_Games_Manha.xml
 C:\Users\cezar\OneDrive\Área de Trabalho\Projeto_Games_API\API_Games\inLock_Games_Manha\inLock_Games_Manha\obj\Debug\net7.0\inLock_Games_Manha.xml
+C:\Users\45845444845\Desktop\ProjetoGames\API_Games\inLock_Games_Manha\inLock_Games_Manha\bin\Debug\net7.0\inLock_Games_Manha.xml
+C:\Users\45845444845\Desktop\ProjetoGames\API_Games\inLock_Games_Manha\inLock_Games_Manha\obj\Debug\net7.0\inLock_Games_Manha.xml
