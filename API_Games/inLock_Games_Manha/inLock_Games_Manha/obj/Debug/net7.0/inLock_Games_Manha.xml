@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>inLock_Games_Manha</name>
+    </assembly>
+    <members>
+        <member name="P:inLock_Games_Manha.Controllers.JogosController._jogosRepository">
+            <summary>
+            objeto _jogosRepository que iirá receber todos os métodos definidos na interface IJogosRepository
+            </summary>
+        </member>
+        <member name="M:inLock_Games_Manha.Controllers.JogosController.Post(inLock_Games_Manha.Domains.JogosDomain)">
+            <summary>
+            Método para realizar o cadastro de um novo Jogo
+            </summary>
+            <param name="novoJogo"></param>
+            <returns>Jogo Cadastrado</returns>
+        </member>
+        <member name="M:inLock_Games_Manha.Controllers.JogosController.Get">
+            <summary>
+            Método para realizar a listagem de um determinado jogo
+            </summary>
+            <returns>jogo listado</returns>
+        </member>
+        <member name="M:inLock_Games_Manha.Controllers.JogosController.Delete(System.Int32)">
+            <summary>
+            Método para realizar o delete de um studio específico
+            </summary>
+            <param name="id"></param>
+            <returns>Ok, Objeto deletado</returns>
+        </member>
+        <member name="M:inLock_Games_Manha.Controllers.StudioController.Get">
+            <summary>
+            Método de listagem de todos os Studios
+            </summary>
+            <returns>Studios listados</returns>
+        </member>
+        <member name="M:inLock_Games_Manha.Controllers.StudioController.Post(inLock_Games_Manha.Domains.StudioDomain)">
+            <summary>
+            Método para realizar o cadastro de um novo estudio de jogos
+            </summary>
+            <param name="novoStudio"></param>
+            <returns>Objeto Criado</returns>
+        </member>
+        <member name="T:inLock_Games_Manha.Domains.JogosDomain">
+            <summary>
+             Classe que representa nossa tabela jogos no banco de dados
+            </summary>
+        </member>
+        <member name="T:inLock_Games_Manha.Domains.StudioDomain">
+            <summary>
+            classe que representa a entidade studio no nosso banco de dados
+            </summary>
+        </member>
+        <member name="T:inLock_Games_Manha.Domains.TiposUsuarioDomain">
+            <summary>
+            Classe que representa a entidade (tabela) TiposUsuario no banco de dados
+            </summary>
+        </member>
+        <member name="T:inLock_Games_Manha.Domains.UsuarioDomain">
+            <summary>
+            classe que representa nossa entidade usuario em nosso banco de dados
+            </summary>
+        </member>
+        <member name="M:inLock_Games_Manha.Interfaces.IJogosRepository.cadastrar(inLock_Games_Manha.Domains.JogosDomain)">
+            <summary>
+            Método para realizar a criação de cadastro de um novo jogo
+            </summary>
+            <param name="novoJogo">Objeto que será cadastrado</param>
+        </member>
+        <member name="M:inLock_Games_Manha.Interfaces.IJogosRepository.ListarTodos">
+            <summary>
+            Método para realizar a listagem de todos os jogos dentro do nosso sitema
+            </summary>
+            <returns>Objeto que será listado</returns>
+        </member>
+        <member name="M:inLock_Games_Manha.Interfaces.IJogosRepository.deletar(System.Int32)">
+            <summary>
+            Método para realziar o delete de um deterinado jogo
+            </summary>
+            <param name="IdJogo"></param>
+        </member>
+        <member name="M:inLock_Games_Manha.Interfaces.IStudioRepository.cadastrar(inLock_Games_Manha.Domains.StudioDomain)">
+            <summary>
+            Método para realizar o cadastro de um novo Studio
+            </summary>
+            <param name="novoStudio">Objeto que será cadastrado</param>
+        </member>
+        <member name="M:inLock_Games_Manha.Interfaces.IStudioRepository.ListarTodos">
+            <summary>
+            Método para realizar a listagem de todos os studios dentro do nosso sistema
+            </summary>
+            <returns>Lista com objetos</returns>
+        </member>
+        <member name="M:inLock_Games_Manha.Interfaces.IUsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            classe para cadastrar novos usuários no sistema
+            </summary>
+            <param name="novoUsuario">Objeto que será cadastrado</param>
+        </member>
+        <member name="F:inLock_Games_Manha.Repositories.JogosRepository.stringConexao">
+            <summary>
+            String de conexão com o banco de dados que recebe os seguintes parâmetros:
+            Data Source: Nome do Servidor
+            Initial Catalog: Nome do banco de dados
+            Autenticação com o windowns
+            private string stringConexao = "Data Source = NOTE18-S14; Initial Catalog = Filmes; Integrated Security = true";
+            </summary>
+            
+        </member>
+        <member name="M:inLock_Games_Manha.Repositories.JogosRepository.cadastrar(inLock_Games_Manha.Domains.JogosDomain)">
+            <summary>
+            Método para realizar a criação de um cadastro de um novo jogo
+            </summary>
+            <param name="novoJogo"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:inLock_Games_Manha.Repositories.JogosRepository.deletar(System.Int32)">
+            <summary>
+            Classe para realizar o delete de um determinado jogo
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:inLock_Games_Manha.Repositories.JogosRepository.ListarTodos">
+            <summary>
+            Método criado para realizar a listagem de todos os jogos dentro do sistema
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="F:inLock_Games_Manha.Repositories.StudioRepository.stringConexao">
+            <summary>
+            String de conexão com o banco de dados que recebe os seguintes parâmetros:
+            Data Source: Nome do Servidor
+            Initial Catalog: Nome do banco de dados
+            Autenticação com o windowns
+            private string stringConexao = "Data Source = NOTE18-S14; Initial Catalog = Filmes; Integrated Security = true";
+            </summary>
+            
+        </member>
+        <member name="M:inLock_Games_Manha.Repositories.StudioRepository.cadastrar(inLock_Games_Manha.Domains.StudioDomain)">
+            <summary>
+            Método para realizar o cadastro de novos studios
+            </summary>
+            <param name="novoStudio"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:inLock_Games_Manha.Repositories.StudioRepository.ListarTodos">
+            <summary>
+            Método para visualizar os studios criados
+            </summary>
+            <returns>lista de studios</returns>
+        </member>
+        <member name="M:inLock_Games_Manha.Repositories.UsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            Método para retornar o usuario buscado com um método de login passando como parâmetro o email e a senha do usuario
+            </summary>
+            <param name="Email"></param>
+            <param name="Senha"></param>
+            <returns>Usuario buscado</returns>
+        </member>
+    </members>
+</doc>

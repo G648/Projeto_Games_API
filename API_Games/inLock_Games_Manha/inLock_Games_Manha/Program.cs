@@ -2,6 +2,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 //Adiciona o serviço de Controller
@@ -29,7 +31,8 @@ builder.Services.AddAuthentication(options =>
         ValidateLifetime = true,
 
         //forma de criptografia e valida a chave de autenticação
-        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("chave-autenticacao-inLock-Games")),
+        //a chave tem que ser identica ao que definimos no usuario controller, quando definimos a chave de acesso ao token
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("projeto-chave-autenticacao-inLock-Games")),
 
         //Valida o tempo de expiração do token
         ClockSkew = TimeSpan.FromMinutes(5),
@@ -47,8 +50,8 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "API Filmes",
-        Description = "Uma ASP.NET Core WEB API para gerenciamento de filmes",
+        Title = "API Jogos",
+        Description = "Uma ASP.NET Core WEB API para gerenciamento de Jogos",
         Contact = new OpenApiContact
         {
             Name = "Guilherme Amorim",
@@ -58,7 +61,7 @@ builder.Services.AddSwaggerGen(options =>
 
     // Configura o swagger para usar o arquivo XML gerado
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    //options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 
     //Usando a autenticaçao no Swagger
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()

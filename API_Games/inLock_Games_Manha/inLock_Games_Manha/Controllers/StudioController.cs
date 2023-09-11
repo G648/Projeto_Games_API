@@ -24,7 +24,7 @@ namespace inLock_Games_Manha.Controllers
         /// </summary>
         /// <returns>Studios listados</returns>
         [HttpGet]
-        [Authorize(Roles = "Admin, Comum")]
+        [Authorize(Roles = "Administrador, Comum")]
         public IActionResult Get()
         {
             try
@@ -32,6 +32,27 @@ namespace inLock_Games_Manha.Controllers
                List<StudioDomain> listarStudios =  _studioRepository.ListarTodos();
 
                 return Ok(listarStudios);
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error.Message);
+            }
+        }
+
+        /// <summary>
+        /// Método para realizar o cadastro de um novo estudio de jogos
+        /// </summary>
+        /// <param name="novoStudio"></param>
+        /// <returns>Objeto Criado</returns>
+        [HttpPost]
+        [Authorize(Roles ="Administrador")]
+        public IActionResult Post(StudioDomain novoStudio)
+        {
+            try
+            {
+                _studioRepository.cadastrar(novoStudio);
+
+                return Created("Objeto criado com sucesso!", novoStudio);
             }
             catch (Exception error)
             {

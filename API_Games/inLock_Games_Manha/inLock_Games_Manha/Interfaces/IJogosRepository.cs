@@ -15,5 +15,11 @@ namespace inLock_Games_Manha.Interfaces
         /// </summary>
         /// <returns>Objeto que será listado</returns>
         List<JogosDomain> ListarTodos();
+
+        /// <summary>
+        /// Método para realziar o delete de um deterinado jogo
+        /// </summary>
+        /// <param name="IdJogo"></param>
+        void deletar (int id);
     }
 }

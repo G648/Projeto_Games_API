@@ -50,6 +50,27 @@ namespace inLock_Games_Manha.Repositories
         }
 
         /// <summary>
+        /// Classe para realizar o delete de um determinado jogo
+        /// </summary>
+        /// <param name="id"></param>
+        public void deletar(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(stringConexao))
+            {
+                string queryDeletebyId = "DELETE FROM Jogo WHERE IdJogo = @id";
+
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryDeletebyId, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    cmd.ExecuteNonQuery ();
+                }
+            }
+        }
+
+        /// <summary>
         /// Método criado para realizar a listagem de todos os jogos dentro do sistema
         /// </summary>
         /// <returns></returns>
@@ -77,6 +98,8 @@ namespace inLock_Games_Manha.Repositories
                     {
                         JogosDomain listaJogos = new JogosDomain()
                         {
+                            IdJogo = Convert.ToInt32(rdr["IdJogo"]),
+
                             Nome = rdr["Nome"].ToString(),
 
                             Descricao = rdr["Descricao"].ToString(),
@@ -101,5 +124,7 @@ namespace inLock_Games_Manha.Repositories
                 return ListarJogos;
             }
         }
+
+        
     }
 }

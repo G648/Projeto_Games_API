@@ -23,7 +23,7 @@ namespace inLock_Games_Manha.Repositories
             using (SqlConnection conn = new SqlConnection(stringConexao))
             {
                 //criando nossa string de banco de dados
-                string querySelect = "SELECT IdUsuario, Usuario.IdTipoUsuario, Email, Senha, CASE WHEN Usuario.IdTipoUsuario = 1 THEN 'Comum' ELSE 'Admin' END AS TipoUsuario FROM Usuario WHERE Email = @Email AND Senha = @Senha";
+                string querySelect = "SELECT IdUsuario, Usuario.IdTipoUsuario, Email, Senha, TiposUsuario.Titulo FROM Usuario INNER JOIN TiposUsuario ON Usuario.IdTipoUsuario = TiposUsuario.IdTipoUsuario WHERE Email = @Email AND Senha = @Senha";
 
                 conn.Open();
 
@@ -47,7 +47,12 @@ namespace inLock_Games_Manha.Repositories
 
                             Email = rdr["Email"].ToString(),
 
-                            Senha = rdr["Senha"].ToString()
+                            Senha = rdr["Senha"].ToString(),
+
+                            Titulo = new TiposUsuarioDomain()
+                            {
+                                Titulo = rdr["Titulo"].ToString()
+                            }
                         };
 
                         return usuarioBuscado;

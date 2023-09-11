@@ -27,7 +27,19 @@ namespace inLock_Games_Manha.Repositories
         /// <exception cref="NotImplementedException"></exception>
         public void cadastrar(StudioDomain novoStudio)
         {
-            throw new NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(stringConexao))
+            {
+                string queryInsert = "INSERT INTO Estudio(Nome) VALUES (@Nome)";
+
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryInsert, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Nome", novoStudio.Nome);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>

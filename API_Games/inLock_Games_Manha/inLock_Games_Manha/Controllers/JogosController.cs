@@ -50,7 +50,7 @@ namespace inLock_Games_Manha.Controllers
         /// </summary>
         /// <returns>jogo listado</returns>
         [HttpGet]
-        [Authorize(Roles ="Administrador, Comunm")]
+        [Authorize(Roles ="Administrador, Comum")]
         public IActionResult Get()
         {
             try
@@ -62,6 +62,28 @@ namespace inLock_Games_Manha.Controllers
             catch (Exception error)
             {
                 return  BadRequest(error.Message);
+            }
+        }
+
+        /// <summary>
+        /// Método para realizar o delete de um studio específico
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Ok, Objeto deletado</returns>
+        [HttpDelete]
+        [Authorize(Roles ="Administrador")]
+        public IActionResult Delete (int id)
+        {
+            try
+            {
+                _jogosRepository.deletar(id);
+
+                return StatusCode(204);
+            }
+            catch (Exception error)
+            {
+
+                return BadRequest(error.Message);
             }
         }
     }

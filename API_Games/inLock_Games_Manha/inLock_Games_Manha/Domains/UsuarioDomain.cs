@@ -13,7 +13,9 @@ namespace inLock_Games_Manha.Domains
         [Required(ErrorMessage ="O nome do campo é obrigatório")]
         public string? Email { get; set; }
 
+        [Required(ErrorMessage ="O campo senha é obrigatório")]
         [StringLength(20, MinimumLength = 5, ErrorMessage ="A senha deve ter entre 5 e 20 caracteres")]
         public string? Senha { get; set; }
+        public TiposUsuarioDomain? Titulo { get; set; }
     }
 }
